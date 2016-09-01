@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable45", "Portable45\Portable45.csproj", "{60D456D3-0FDB-4BA1-A135-5A06094FEB02}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "_Blue.MVVM.Navigation", "_Blue.MVVM.Navigation\_Blue.MVVM.Navigation.shproj", "{28CF834D-3A98-4E0B-8BB4-735D4AD54FEE}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		_Blue.MVVM.Navigation\_Blue.MVVM.Navigation.projitems*{28cf834d-3a98-4e0b-8bb4-735d4ad54fee}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60D456D3-0FDB-4BA1-A135-5A06094FEB02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60D456D3-0FDB-4BA1-A135-5A06094FEB02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60D456D3-0FDB-4BA1-A135-5A06094FEB02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60D456D3-0FDB-4BA1-A135-5A06094FEB02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
