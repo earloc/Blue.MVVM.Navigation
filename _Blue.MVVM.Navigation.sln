@@ -10,6 +10,7 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		_Blue.MVVM.Navigation\_Blue.MVVM.Navigation.projitems*{28cf834d-3a98-4e0b-8bb4-735d4ad54fee}*SharedItemsImports = 13
+		_Blue.MVVM.Navigation\_Blue.MVVM.Navigation.projitems*{60d456d3-0fdb-4ba1-a135-5a06094feb02}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
