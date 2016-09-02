@@ -17,7 +17,7 @@ namespace Blue.MVVM.Navigation {
 
         private readonly ITypeResolver _TypeResolver;
 
-        protected internal abstract Task<Type> ResolveViewForAsync<TViewModel>();
+        public abstract Task<Type> ResolveViewTypeForAsync<TViewModel>();
 
         public async Task<TView> ResolveViewForAsync<TViewModel, TView>(Action<TViewModel> viewModelConfiguration) {
             var view = await CreateViewAsync<TViewModel, TView>();
@@ -37,7 +37,7 @@ namespace Blue.MVVM.Navigation {
         }
 
         private async Task<TView> CreateViewAsync<TViewModel, TView>() {
-            var viewType = await ResolveViewForAsync<TViewModel>();
+            var viewType = await ResolveViewTypeForAsync<TViewModel>();
             if (viewType == null)
                 return default(TView);
 

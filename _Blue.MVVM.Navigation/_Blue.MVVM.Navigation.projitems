@@ -9,6 +9,8 @@
     <Import_RootNamespace>_Blue.MVVM.Navigation</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CompositeViewLocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConventionalViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)INavigator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewLocator.cs" />
