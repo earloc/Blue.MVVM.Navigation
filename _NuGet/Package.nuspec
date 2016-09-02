@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Blue.MVVM.Navigation</id>
+    <version>0.1.0-pre1</version>
+    <title>Blue.MVVM.Navigation</title>
+    <authors>earloc</authors>
+    <owners></owners>
+    <description>
+      MVVM&lt;BareknuckleStyle&gt; - Navigation
+    </description>
+    <releaseNotes>
+      - 0.1.0 - initial release
+    </releaseNotes>
+    <summary>
+    </summary>
+    <language>en-US</language>
+    <projectUrl>https://github.com/earloc/Blue.MVVM.Navigation</projectUrl>
+    <iconUrl>http://oi60.tinypic.com/wl6c7a.jpg</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <copyright>Copyright nobody in particular 2016</copyright>
+    <references></references>
+    <tags>Blue MVVM Navigation</tags>
+  </metadata>
+  <files>
+    <file src="bin\lib\net45\Blue.MVVM.*"
+          target="lib/net45" />
+    <file src="bin\lib\net46\Blue.MVVM.*"
+          target="lib/net46" />
+
+    <file src="bin\lib\uwp\Blue.MVVM.*"
+          target="lib/netcore45" />
+    
+    <file src="bin\lib\portable45\Blue.MVVM.*"
+              target="lib/MonoAndroid1" />
+    <file src="bin\lib\portable45\Blue.MVVM.*"
+              target="lib/xamarinios10" />
+    
+    <file src="bin\lib\portable45\Blue.MVVM.*"
+          target="lib/portable-net45+netcore45+wpa81+MonoAndroid1+xamarinios10+MonoTouch1" />
+
+  </files>
+</package>

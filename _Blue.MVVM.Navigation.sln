@@ -23,6 +23,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable40", "Portable40\Po
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "_Portable", "_Portable\_Portable.shproj", "{B2317B01-886D-4209-8789-8F518E8DB28A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_NuGet", "_NuGet\_NuGet.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C4D2771C-C9E4-4600-8326-DB52F79BD32A} = {C4D2771C-C9E4-4600-8326-DB52F79BD32A}
+		{9B3D7694-1A5E-426D-84D3-14F2D711F787} = {9B3D7694-1A5E-426D-84D3-14F2D711F787}
+		{67F9D3A8-F71E-4428-913F-C37AE82CDB24} = {67F9D3A8-F71E-4428-913F-C37AE82CDB24}
+		{397677B0-6A06-4DEF-A19E-48B3EAE70467} = {397677B0-6A06-4DEF-A19E-48B3EAE70467}
+		{5B70A1C1-63C8-40D1-AC43-EB2F8BA47D1F} = {5B70A1C1-63C8-40D1-AC43-EB2F8BA47D1F}
+		{60D456D3-0FDB-4BA1-A135-5A06094FEB02} = {60D456D3-0FDB-4BA1-A135-5A06094FEB02}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		_Blue.MVVM.Navigation\_Blue.MVVM.Navigation.projitems*{28cf834d-3a98-4e0b-8bb4-735d4ad54fee}*SharedItemsImports = 13
@@ -34,8 +44,6 @@ Global
 		_Blue.MVVM.Navigation\_Blue.MVVM.Navigation.projitems*{67f9d3a8-f71e-4428-913f-c37ae82cdb24}*SharedItemsImports = 4
 		_Blue.MVVM.Navigation\_Blue.MVVM.Navigation.projitems*{9b3d7694-1a5e-426d-84d3-14f2d711f787}*SharedItemsImports = 4
 		_Windows\_Windows.projitems*{9b3d7694-1a5e-426d-84d3-14f2d711f787}*SharedItemsImports = 4
-		_Blue.MVVM.Navigation\_Blue.MVVM.Navigation.projitems*{a72c10ef-371a-4993-8b06-d3560550ef1b}*SharedItemsImports = 4
-		_Portable\_Portable.projitems*{a72c10ef-371a-4993-8b06-d3560550ef1b}*SharedItemsImports = 4
 		_Portable\_Portable.projitems*{b2317b01-886d-4209-8789-8f518e8db28a}*SharedItemsImports = 13
 		_Blue.MVVM.Navigation\_Blue.MVVM.Navigation.projitems*{c4d2771c-c9e4-4600-8326-db52f79bd32a}*SharedItemsImports = 4
 		_Windows\_Windows.projitems*{c4d2771c-c9e4-4600-8326-db52f79bd32a}*SharedItemsImports = 4
@@ -164,6 +172,22 @@ Global
 		{A72C10EF-371A-4993-8B06-D3560550EF1B}.Release|x64.Build.0 = Release|Any CPU
 		{A72C10EF-371A-4993-8B06-D3560550EF1B}.Release|x86.ActiveCfg = Release|Any CPU
 		{A72C10EF-371A-4993-8B06-D3560550EF1B}.Release|x86.Build.0 = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|ARM.Build.0 = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|x64.Build.0 = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|x86.Build.0 = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|ARM.ActiveCfg = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|ARM.Build.0 = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|x64.ActiveCfg = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|x64.Build.0 = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|x86.ActiveCfg = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
