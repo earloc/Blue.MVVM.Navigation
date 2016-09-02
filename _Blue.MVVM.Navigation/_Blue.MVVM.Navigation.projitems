@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CompositeViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ConventionalViewLocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CrossTask.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DefaultViewNameConvention.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)INavigator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IView.cs" />

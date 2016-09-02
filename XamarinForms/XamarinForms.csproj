@@ -36,6 +36,12 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Blue.MVVM.Navigation.XML</DocumentationFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\Blue.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Navigator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,6 +65,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Blue.snk">
+      <Link>Properties\Blue.snk</Link>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="..\_Blue.MVVM.Navigation\_Blue.MVVM.Navigation.projitems" Label="Shared" />

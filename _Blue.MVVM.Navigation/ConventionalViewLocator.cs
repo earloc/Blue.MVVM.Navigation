@@ -30,8 +30,7 @@ namespace Blue.MVVM.Navigation {
         }
 
         public async Task<Type> ResolveViewTypeForAsync<TViewModel>() {
-
-            await Task.Yield();
+            await CrossTask.Yield();
             foreach (var assembly in _ViewAssemblies) {
 
                 foreach (var convention in _Conventions) {

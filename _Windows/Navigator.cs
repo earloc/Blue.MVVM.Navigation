@@ -4,8 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+
+#if WPF
+using System.Windows;
+using System.Windows.Controls;
+#else
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+
+#endif
 
 namespace Blue.MVVM.Navigation {
     public partial class Navigator {
@@ -20,7 +28,7 @@ namespace Blue.MVVM.Navigation {
         private readonly Frame _NavigationRoot;
 
         public async Task PopAsync() {
-            await Task.Yield();
+            await CrossTask.Yield();
 
             if (_NavigationRoot.CanGoBack)
                 _NavigationRoot.GoBack();

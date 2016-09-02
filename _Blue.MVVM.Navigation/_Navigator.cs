@@ -29,7 +29,7 @@ namespace Blue.MVVM.Navigation {
         public async Task<bool> PushAsync<TViewModel>(Action<TViewModel> config = null) {
             var viewModel = _TypeResolver.Resolve<TViewModel>();
             return await PushAsyncCore(viewModel, async vm => {
-                await Task.Yield();
+                await CrossTask.Yield();
                 config(vm);
             });
         }

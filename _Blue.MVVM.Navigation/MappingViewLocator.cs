@@ -15,7 +15,7 @@ namespace Blue.MVVM.Navigation {
         }
 
         public async Task<Type> ResolveViewTypeForAsync<TViewModel>() {
-            await Task.Yield();
+            await CrossTask.Yield();
 
             var key = typeof(TViewModel);
             if (_Map.ContainsKey(key))

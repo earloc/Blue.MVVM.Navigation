@@ -18,7 +18,6 @@ namespace Blue.MVVM.Navigation {
         }
 
         private readonly NavigationPage _NavigationRoot;
-        
 
         public async Task PopAsync() {
             await _NavigationRoot.PopAsync();
@@ -37,33 +36,5 @@ namespace Blue.MVVM.Navigation {
 
             return true;
         }
-        //public async Task PushAsync<T>(T viewModel) {
-        //    var page = await _ViewLocator.ResolveViewForAsync<T, Page>(viewModel);
-        //    await _NavigationRoot.PushAsync(page);
-        //}
-
-        //public async Task PushAsync<T>(Action<T> viewModelConfig) {
-        //    var viewType = await _ViewLocator.ResolveViewTypeForAsync<T, Page>();
-
-        //    await _NavigationRoot.PushAsync(page);
-        //}
-
-        //private async Task<TView> ResolveViewForAsync<TViewModel, TView>(Action<TViewModel> viewModelConfiguration) {
-        //    var view = await CreateViewAsync<TViewModel, TView>();
-        //    if (view != null) {
-        //        var viewModel = await _TypeResolver.ResolveAsync(viewModelConfiguration);
-        //        await InitializeViewAsync(viewModel, view);
-        //    }
-
-        //    return view;
-        //}
-
-        //private async Task<TView> CreateViewAsync<TViewModel, TView>() {
-        //    var viewType = await ResolveViewTypeForAsync<TViewModel>();
-        //    if (viewType == null)
-        //        return default(TView);
-
-        //    return _TypeResolver.Resolve<TView>(viewType);
-        //}
     }
 }
