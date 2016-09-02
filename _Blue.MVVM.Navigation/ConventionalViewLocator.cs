@@ -6,10 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Blue.MVVM.Navigation {
-    public class ConventionalViewLocator : ViewLocator {
+    public class ConventionalViewLocator : IViewLocator {
 
-        public ConventionalViewLocator(ITypeResolver typeResolver, bool includeDefaultViewNameConvention = true)
-            : base(typeResolver) {
+        public ConventionalViewLocator(bool includeDefaultViewNameConvention = true) {
 
             if (includeDefaultViewNameConvention)
                 AddViewNameConvention(new DefaultViewNameConvention());
@@ -30,7 +29,7 @@ namespace Blue.MVVM.Navigation {
             _Conventions.Add(convention);
         }
 
-        public override async Task<Type> ResolveViewTypeForAsync<TViewModel>() {
+        public async Task<Type> ResolveViewTypeForAsync<TViewModel>() {
 
             await Task.Yield();
             foreach (var assembly in _ViewAssemblies) {

@@ -17,8 +17,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)IViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IViewNameConvention.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MappingViewLocator.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewName.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_AssemblyInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)_Navigator.cs" />
   </ItemGroup>
 </Project>

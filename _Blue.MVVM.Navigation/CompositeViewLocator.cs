@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 using Blue.MVVM.IoC;
 
 namespace Blue.MVVM.Navigation {
-    public abstract class CompositeViewLocator : ViewLocator {
+    public class CompositeViewLocator : IViewLocator {
 
         private ICollection<IViewLocator> _Locators = new List<IViewLocator>();
 
-        public CompositeViewLocator(ITypeResolver typeResolver)
-            : base(typeResolver) {
-        }
 
         public void Add(IViewLocator locator) {
             if (locator == null)
@@ -21,9 +18,9 @@ namespace Blue.MVVM.Navigation {
             _Locators.Add(locator);
         }
 
-        public override Task<Type> ResolveViewTypeForAsync<TViewModel>() {
+        public async Task<Type> ResolveViewTypeForAsync<TViewModel>() {
             foreach (var locator in _Locators) {
-                var viewType = locator.ResolveViewTypeForAsync<TViewModel>();
+                var viewType = await locator.ResolveViewTypeForAsync<TViewModel>();
                 if (viewType != null)
                     return viewType;
             }
