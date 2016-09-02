@@ -6,11 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Blue.MVVM.Navigation {
-    public abstract class ConventionalViewLocator : ViewLocator {
+    public class ConventionalViewLocator : ViewLocator {
 
-        public ConventionalViewLocator(ITypeResolver typeResolver)
+        public ConventionalViewLocator(ITypeResolver typeResolver, bool includeDefaultViewNameConvention = true)
             : base(typeResolver) {
+
+            if (includeDefaultViewNameConvention)
+                AddViewNameConvention(new DefaultViewNameConvention());
         }
+
         private IDictionary<string, Assembly> _ViewAssemblies = new Dictionary<string, Assembly>();
         public void AddViewAssembly(Assembly viewAssembly) {
             if (viewAssembly == null)
@@ -19,26 +23,29 @@ namespace Blue.MVVM.Navigation {
             _ViewAssemblies.Add(viewAssembly.FullName, viewAssembly);
         }
 
+        private IList<IViewNameConvention> _Conventions = new List<IViewNameConvention>();
+        public void AddViewNameConvention(IViewNameConvention convention) {
+            if (convention == null)
+                throw new ArgumentNullException(nameof(convention), "must not be null");
+            _Conventions.Add(convention);
+        }
+
         public override async Task<Type> ResolveViewTypeForAsync<TViewModel>() {
 
             await Task.Yield();
-
-            var viewModelType = typeof(TViewModel);
-
-            var viewModelNameSpace = viewModelType.Name;
-            var viewNameSpace = viewModelNameSpace.Replace("ViewModels", "Views");
-
-            var viewModelSimpleName = viewModelType.Name;
-            var viewSimpleName = viewModelSimpleName.Replace("ViewModel", "");
-
-            var viewFullName = $"{viewNameSpace}.{viewSimpleName}";
-
             foreach (var assembly in _ViewAssemblies) {
-                var assemblyName = assembly.Value.FullName;
-                var assemblyQualifiedViewTypeName = $"{viewFullName}, {assemblyName}";
-                var viewType = Type.GetType(assemblyQualifiedViewTypeName);
-                if (viewType != null)
-                    return viewType;
+
+                foreach (var convention in _Conventions) {
+                    var viewName = convention.GetViewNameFor<TViewModel>();
+                    var viewFullName = viewName.FullName;
+
+
+                    var assemblyName = assembly.Value.FullName;
+                    var assemblyQualifiedViewTypeName = $"{viewFullName}, {assemblyName}";
+                    var viewType = Type.GetType(assemblyQualifiedViewTypeName);
+                    if (viewType != null)
+                        return viewType;
+                }
             }
 
             return null;

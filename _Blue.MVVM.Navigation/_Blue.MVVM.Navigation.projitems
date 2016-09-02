@@ -11,9 +11,14 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CompositeViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ConventionalViewLocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DefaultViewNameConvention.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)INavigator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IViewLocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IViewNameConvention.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MappingViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewLocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewName.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_AssemblyInfo.cs" />
   </ItemGroup>
 </Project>
