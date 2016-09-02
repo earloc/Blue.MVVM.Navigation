@@ -28,7 +28,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE;BACKPORTED_TPL</DefineConstants>
+    <DefineConstants>TRACE;BACKPORTED_TPL;WPF</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Blue.MVVM.Navigation.XML</DocumentationFile>
