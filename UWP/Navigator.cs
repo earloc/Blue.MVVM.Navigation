@@ -27,7 +27,7 @@ namespace Blue.MVVM.Navigation {
         }
 
         private async Task<bool> PushAsyncCore<TViewModel>(TViewModel viewModel, Func<TViewModel, Task> asyncConfig = null) {
-            var viewType = await _ViewLocator.ResolveViewTypeForAsync<TViewModel>();
+            var viewType = await _ViewLocator.ResolveViewTypeForAsync<TViewModel>(true);
 
             bool success = _NavigationRoot.Navigate(viewType);
             if (!success)

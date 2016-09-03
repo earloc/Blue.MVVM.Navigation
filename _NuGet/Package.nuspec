@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Blue.MVVM.Navigation</id>
-    <version>0.1.2-pre1</version>
+    <version>0.2.0-pre5</version>
     <title>Blue.MVVM.Navigation</title>
     <authors>earloc</authors>
     <owners></owners>
@@ -10,6 +10,7 @@
       MVVM&lt;BareKnuckleStyle&gt; - Navigation
     </description>
     <releaseNotes>
+      - 0.2.0 - various API and target profile changes
       - 0.1.0 - initial release
     </releaseNotes>
     <summary>
@@ -22,7 +23,12 @@
     <copyright>Copyright nobody in particular 2016</copyright>
     <references></references>
     <tags>Blue MVVM Navigation</tags>
-  </metadata>
+    <dependencies>
+      <group>
+        <dependency id="Blue.MVVM.IoC" version="0.4.2-pre1" />
+      </group>
+    </dependencies>
+    </metadata>
   <files>
     <file src="bin\lib\net45\Blue.MVVM.*"
           target="lib/net45" />
@@ -33,13 +39,16 @@
           target="lib/netcore45" />
     
     <file src="bin\lib\xamarinForms\Blue.MVVM.*"
-              target="lib/MonoAndroid1" />
+              target="lib/monoandroid" />
     
     <file src="bin\lib\xamarinForms\Blue.MVVM.*"
-              target="lib/xamarinios10" />
+              target="lib/monotouch" />
+    
+    <file src="bin\lib\xamarinForms\Blue.MVVM.*"
+              target="lib/Xamarin.iOS" />
     
     <file src="bin\lib\portable45\Blue.MVVM.*"
-          target="lib/portable-net45+netcore45+wpa81+MonoAndroid1+xamarinios10+MonoTouch1" />
+          target="lib/portable-net45+netcore45+wpa81+MonoAndroid+xamarinios+monotouch" />
 
   </files>
 </package>

@@ -18,11 +18,14 @@ namespace Blue.MVVM.Navigation {
             _Locators.Add(locator);
         }
 
-        public async Task<Type> ResolveViewTypeForAsync<TViewModel>() {
+        public async Task<Type> ResolveViewTypeForAsync<TViewModel>(bool throwOnError = false) {
             foreach (var locator in _Locators) {
                 var viewType = await locator.ResolveViewTypeForAsync<TViewModel>();
                 if (viewType != null)
                     return viewType;
+            }
+            if (throwOnError) {
+                throw new ViewNotFoundException<TViewModel>();
             }
             return null;
         }

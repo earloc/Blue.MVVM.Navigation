@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Blue.MVVM.Navigation {
     partial class Navigator {
 
-        public Navigator(IViewLocator viewLocator, ITypeResolver typeResolver) {
+        protected Navigator(IViewLocator viewLocator, ITypeResolver typeResolver) {
             if (viewLocator == null)
                 throw new ArgumentNullException(nameof(viewLocator), "must not be null");
             _ViewLocator = viewLocator;

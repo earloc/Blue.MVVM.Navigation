@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace Blue.MVVM.Navigation {
     public interface IViewLocator {
-        Task<Type> ResolveViewTypeForAsync<TViewModel>();
+        Task<Type> ResolveViewTypeForAsync<TViewModel>(bool throwOnError = false);
     }
 }

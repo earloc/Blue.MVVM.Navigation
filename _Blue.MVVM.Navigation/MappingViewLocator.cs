@@ -14,13 +14,16 @@ namespace Blue.MVVM.Navigation {
             _Map.Add(typeof(TViewModel), typeof(TView));
         }
 
-        public async Task<Type> ResolveViewTypeForAsync<TViewModel>() {
+        public async Task<Type> ResolveViewTypeForAsync<TViewModel>(bool throwOnError = false) {
             await CrossTask.Yield();
 
             var key = typeof(TViewModel);
             if (_Map.ContainsKey(key))
                 return _Map[key];
 
+            if (throwOnError) {
+                throw new ViewNotFoundException<TViewModel>();
+            }
             return null;
         }
     }

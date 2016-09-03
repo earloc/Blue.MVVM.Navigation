@@ -7,7 +7,7 @@ namespace Blue.MVVM.Navigation {
         public ViewName GetViewNameFor<TViewModel>() {
             var viewModelType = typeof(TViewModel);
 
-            var viewModelNameSpace = viewModelType.Name;
+            var viewModelNameSpace = viewModelType.Namespace;
             var viewNameSpace = viewModelNameSpace.Replace("ViewModels", "Views");
 
             var viewModelSimpleName = viewModelType.Name;
