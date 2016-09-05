@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Blue.MVVM.Navigation {
-    public partial class Navigator : INavigator {
+    public partial class Navigator {
 
         public Navigator(IViewLocator viewLocator, ITypeResolver typeResolver, NavigationPage navigationRoot) 
             : this (viewLocator, typeResolver) {

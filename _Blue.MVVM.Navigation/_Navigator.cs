@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Blue.MVVM.Navigation {
-    partial class Navigator {
+    partial class Navigator : INavigator {
 
         protected Navigator(IViewLocator viewLocator, ITypeResolver typeResolver) {
             if (viewLocator == null)

@@ -16,7 +16,7 @@ using Windows.UI.Xaml.Controls;
 #endif
 
 namespace Blue.MVVM.Navigation {
-    public partial class Navigator : INavigator {
+    public partial class Navigator {
         public Navigator(IViewLocator viewLocator, ITypeResolver typeResolver, Frame navigationRoot) 
             : this(viewLocator, typeResolver) {
            
