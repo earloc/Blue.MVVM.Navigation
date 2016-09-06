@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)BaitAndSwitchException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ModalNavigator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Navigator.cs" />
   </ItemGroup>
 </Project>

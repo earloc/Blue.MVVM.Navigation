@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
 
 namespace Blue.MVVM.Navigation {
-    public partial class Navigator {
+    public partial class ModalNavigator {
 
-        public Navigator(IViewLocator viewLocator, ITypeResolver typeResolver, INavigation navigationRoot) 
-            : this (viewLocator, typeResolver) {
+        public ModalNavigator(IViewLocator viewLocator, ITypeResolver typeResolver, INavigation navigationRoot) 
+            : base (viewLocator, typeResolver) {
 
             if (navigationRoot == null)
                 throw new ArgumentNullException(nameof(navigationRoot), "must not be null");
@@ -18,12 +19,7 @@ namespace Blue.MVVM.Navigation {
         }
 
         private readonly INavigation _NavigationRoot;
-
-        public async Task PopAsync() {
-            await _NavigationRoot.PopAsync();
-        }
-
-        private async Task<bool> PushCoreAsync<TViewModel>(TViewModel viewModel, Func<TViewModel, Task> asyncConfig = null) {
+        private async Task<bool?> ShowModalCoreAsync<TViewModel>(TViewModel viewModel, Func<TViewModel, Task> asyncConfig = null) {
             var viewType = await ViewLocator.ResolveViewTypeForAsync<TViewModel>(true);
             var page = TypeResolver.ResolveAs<Page>(viewType);
 
@@ -32,7 +28,7 @@ namespace Blue.MVVM.Navigation {
             if (asyncConfig != null)
                 await asyncConfig(viewModel);
 
-            await _NavigationRoot.PushAsync(page);
+            await _NavigationRoot.PushModalAsync(page);
 
             return true;
         }

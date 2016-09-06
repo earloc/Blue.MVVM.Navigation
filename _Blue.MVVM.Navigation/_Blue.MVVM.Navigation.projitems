@@ -13,15 +13,20 @@
     <Compile Include="$(MSBuildThisFileDirectory)ConventionalViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CrossTask.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DefaultViewNameConvention.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IModalNavigator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)INavigator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IModalNavigatorExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)INavigatorExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IViewNameConvention.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MappingViewLocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NavigatorBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ResolvingViewEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewName.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewNotFoundException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_AssemblyInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)_ModalNavigator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_Navigator.cs" />
   </ItemGroup>
 </Project>

@@ -9,6 +9,7 @@
     <Import_RootNamespace>Blue.MVVM.Navigation</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ModalNavigator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Navigator.cs" />
   </ItemGroup>
 </Project>

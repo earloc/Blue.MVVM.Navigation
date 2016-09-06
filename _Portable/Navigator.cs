@@ -12,7 +12,7 @@ namespace Blue.MVVM.Navigation {
             throw new BaitAndSwitchException();
         }
 
-        public async Task<bool> PushAsyncCore<TViewModel>(TViewModel viewModel, Func<TViewModel, Task> asyncConfig = null) {
+        public async Task<bool> PushCoreAsync<TViewModel>(TViewModel viewModel, Func<TViewModel, Task> asyncConfig = null) {
             throw new BaitAndSwitchException();
         }
 
