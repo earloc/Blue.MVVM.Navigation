@@ -9,6 +9,12 @@ using Xamarin.Forms;
 
 namespace Blue.MVVM.Navigation {
     public partial class ModalNavigator {
+        
+        public class Settings {
+            public bool IsAnimationEnabled { get; set; }
+        }
+
+        public Settings Defaults { get; } = new Settings();
 
         public ModalNavigator(IViewLocator viewLocator, ITypeResolver typeResolver, INavigation navigationRoot) 
             : base (viewLocator, typeResolver) {
@@ -19,8 +25,8 @@ namespace Blue.MVVM.Navigation {
         }
 
         private readonly INavigation _NavigationRoot;
-        private async Task<bool?> ShowModalCoreAsync<TViewModel>(TViewModel viewModel, Func<TViewModel, Task> asyncConfig = null) {
-            var viewType = await ViewLocator.ResolveViewTypeForAsync<TViewModel>(true);
+        private async Task ShowModalCoreAsync<TViewModel>(TViewModel viewModel, Func<TViewModel, Task> asyncConfig = null, bool? animated = null) {
+            var viewType = await ViewLocator.ResolveViewTypeForAsync(viewModel?.GetType() ?? typeof(TViewModel), true);
             var page = TypeResolver.ResolveAs<Page>(viewType);
 
             SetViewModel<TViewModel, BindableObject>(page, viewModel, (v, vm) => v.BindingContext = vm);
@@ -28,9 +34,11 @@ namespace Blue.MVVM.Navigation {
             if (asyncConfig != null)
                 await asyncConfig(viewModel);
 
-            await _NavigationRoot.PushModalAsync(page);
+            await _NavigationRoot.PushModalAsync(page, animated ?? Defaults.IsAnimationEnabled);
+        }
 
-            return true;
+        public async Task PopModalAsync(bool? animated = null) {
+            await _NavigationRoot.PopModalAsync(animated ?? Defaults.IsAnimationEnabled);
         }
     }
 }

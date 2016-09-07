@@ -24,7 +24,7 @@ namespace Blue.MVVM.Navigation {
         }
 
         private async Task<bool> PushCoreAsync<TViewModel>(TViewModel viewModel, Func<TViewModel, Task> asyncConfig = null) {
-            var viewType = await ViewLocator.ResolveViewTypeForAsync<TViewModel>(true);
+            var viewType = await ViewLocator.ResolveViewTypeForAsync(viewModel?.GetType() ?? typeof(TViewModel), true);
             var page = TypeResolver.ResolveAs<Page>(viewType);
 
             SetViewModel<TViewModel, BindableObject>(page, viewModel, (v, vm) => v.BindingContext = vm);

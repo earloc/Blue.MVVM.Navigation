@@ -15,13 +15,13 @@ namespace Blue.MVVM.Navigation {
                 AddViewNameConvention(new DefaultViewNameConvention());
         }
 
-        private IDictionary<string, Assembly> _ViewAssemblies = new Dictionary<string, Assembly>();
+        private ISet<string> _FallbackAssemblies = new HashSet<string>();
 
         public void AddViewAssembly(Assembly viewAssembly) {
             if (viewAssembly == null)
                 throw new ArgumentNullException(nameof(viewAssembly), "must not be null");
 
-            _ViewAssemblies.Add(viewAssembly.FullName, viewAssembly);
+            _FallbackAssemblies.Add(viewAssembly.FullName);
         }
 
         private IList<IViewNameConvention> _Conventions = new List<IViewNameConvention>();
@@ -31,20 +31,24 @@ namespace Blue.MVVM.Navigation {
             _Conventions.Add(convention);
         }
 
-        public async Task<Type> ResolveViewTypeForAsync<TViewModel>(bool throwOnError = false) {
-            await CrossTask.Yield();
-            foreach (var assembly in _ViewAssemblies) {
+        public Task<Type> ResolveViewTypeForAsync<TViewModel>(bool throwOnError = false) {
+            return ResolveViewTypeForAsync(typeof(TViewModel), throwOnError);
+        }
 
+        public async Task<Type> ResolveViewTypeForAsync(Type viewModelType, bool throwOnError = false) {
+            await CrossTask.Yield();
+
+            IncludeOriginatingAssemblyName(viewModelType);
+            
+            foreach (var assemblyName in _FallbackAssemblies) {
                 foreach (var convention in _Conventions) {
-                    
-                    var viewName = convention.GetViewNameFor<TViewModel>();
+
+                    var viewName = convention.GetViewNameFor(viewModelType);
                     var viewFullName = viewName.FullName;
 
-
-                    var assemblyName = assembly.Value.FullName;
                     var assemblyQualifiedViewTypeName = $"{viewFullName}, {assemblyName}";
 
-                    ResolvingView?.Invoke(this, new ResolvingViewEventArgs(typeof(TViewModel), assemblyQualifiedViewTypeName));
+                    ResolvingView?.Invoke(this, new ResolvingViewEventArgs(viewModelType, assemblyQualifiedViewTypeName));
 
                     var viewType = Type.GetType(assemblyQualifiedViewTypeName);
                     if (viewType != null)
@@ -53,10 +57,20 @@ namespace Blue.MVVM.Navigation {
             }
 
             if (throwOnError) {
-                throw new ViewNotFoundException<TViewModel>();
+                throw new ViewNotFoundException(viewModelType);
             }
             return null;
         }
+
+        private void IncludeOriginatingAssemblyName(Type viewModelType) {
+            var viewModelFullName = viewModelType.FullName;
+            var viewModelAssemblQualifiedName = viewModelType.AssemblyQualifiedName;
+            var viewModelAssemblyName = viewModelAssemblQualifiedName.Replace($"{viewModelFullName}, ", string.Empty);
+
+            if (!_FallbackAssemblies.Contains(viewModelAssemblyName))
+                _FallbackAssemblies.Add(viewModelAssemblyName);
+        }
+
         public event EventHandler<ResolvingViewEventArgs> ResolvingView;
 
     }

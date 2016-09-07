@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 #if WPF
 using System.Windows;
@@ -14,44 +13,32 @@ using Windows.UI.Xaml.Controls;
 
 #endif
 namespace Blue.MVVM.Navigation {
-    partial class ModalNavigator {
+    public partial class ModalNavigator {
 
-        private async Task<bool?> ShowModalCoreAsync<TViewModel>(TViewModel viewModel, Func<TViewModel, Task> asyncConfig = null) {
-            var viewType = await ViewLocator.ResolveViewTypeForAsync<TViewModel>(true);
+        private async Task ShowModalCoreAsync<TViewModel>(TViewModel viewModel, Func<TViewModel, Task> asyncConfig = null, bool? animated = null) {
+            var viewType = await ViewLocator.ResolveViewTypeForAsync(viewModel?.GetType() ?? typeof(TViewModel), true);
 
             if (asyncConfig != null) {
                 await asyncConfig(viewModel);
             }
 
-            var view = await ViewLocator.ResolveViewTypeForAsync<TViewModel>();
+            var view = TypeResolver.ResolveAs<FrameworkElement>(viewType);
 
             SetViewModel<TViewModel, FrameworkElement>(view, viewModel, (v, vm) => v.DataContext = vm);
 
 #if WPF
             var dialog = new Window();
             var result = dialog.ShowDialog();
-            return result;
 #else
             var dialog = new ContentDialog();
             var result = await dialog.ShowAsync();
-            return ToBool(result);
 
 #endif
         }
 
-#if WINDOWS_UWP
-
-        private bool? ToBool(ContentDialogResult result) {
-            if (result == ContentDialogResult.Primary)
-                return true;
-            if (result == ContentDialogResult.Secondary)
-                return false;
-
-            return null;
-
+        public async Task PopModalAsync(bool? animated = null) {
+            await CrossTask.Yield();
         }
-
-#endif
 
     }
 }

@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using System.Windows;
 
 namespace Blue.MVVM.Navigation {
-    partial class ModalNavigator {
+    public partial class ModalNavigator {
 
-        private async Task<bool?> ShowModalCoreAsync<TViewModel>(TViewModel viewModel, Func<TViewModel, Task> asyncConfig = null) {
+        private Task ShowModalCoreAsync<TViewModel>(TViewModel viewModel, Func<TViewModel, Task> asyncConfig = null, bool? animated = null) {
             throw new BaitAndSwitchException();
         }
 
+        public Task PopModalAsync(bool? animated = null) {
+            throw new BaitAndSwitchException();
+        }
     }
 }

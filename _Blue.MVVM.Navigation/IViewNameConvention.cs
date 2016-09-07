@@ -6,6 +6,7 @@ namespace Blue.MVVM.Navigation {
     public interface IViewNameConvention {
 
         ViewName GetViewNameFor<TViewModel>();
+        ViewName GetViewNameFor(Type viewModelType);
 
     }
 }
