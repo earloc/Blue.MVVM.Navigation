@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Blue.MVVM.Navigation {
+namespace Blue.MVVM.Navigation.Conventions {
     public class ViewName {
 
         public ViewName(string @namespace, string name) {

@@ -1,4 +1,5 @@
 ﻿using Blue.MVVM.IoC;
+using Blue.MVVM.Navigation.ViewLocators;
 using System;
 using System.Collections.Generic;
 using System.Reflection;

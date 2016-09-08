@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Blue.MVVM.Navigation {
-    public class DefaultViewNameConvention : IViewNameConvention {
-        public ViewName GetViewNameFor(Type viewModelType) {
+namespace Blue.MVVM.Navigation.Conventions {
+    public partial class DefaultViewNameConvention : IViewNameConvention {
+        public IEnumerable<ViewName> GetPossibleViewNamesFor(Type viewModelType) {
             if (viewModelType == null)
                 throw new ArgumentNullException(nameof(viewModelType), "must not be null");
 
@@ -14,12 +14,7 @@ namespace Blue.MVVM.Navigation {
             var viewModelSimpleName = viewModelType.Name;
 
             var viewSimpleName = viewModelSimpleName.Replace("ViewModel", "");
-
-            return new ViewName(viewNameSpace, viewSimpleName);
-        }
-
-        public ViewName GetViewNameFor<TViewModel>() {
-            return GetViewNameFor(typeof(TViewModel));
+            return new ViewName[] { new ViewName(viewNameSpace, viewSimpleName) };
         }
     }
 }

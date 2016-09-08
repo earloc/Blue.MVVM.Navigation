@@ -1,4 +1,5 @@
 ﻿using Blue.MVVM.IoC;
+using Blue.MVVM.Navigation.Conventions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,13 +7,13 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blue.MVVM.Navigation {
+namespace Blue.MVVM.Navigation.ViewLocators {
     public partial class ConventionalViewLocator : IViewLocator {
 
         public ConventionalViewLocator(bool includeDefaultViewNameConvention = true) {
 
             if (includeDefaultViewNameConvention)
-                AddViewNameConvention(new DefaultViewNameConvention());
+                AddViewNameConvention(new InheritanceViewNameConvention(new DefaultViewNameConvention()));
         }
 
         private ISet<string> _FallbackAssemblies = new HashSet<string>();
@@ -42,21 +43,21 @@ namespace Blue.MVVM.Navigation {
             
             foreach (var assemblyName in _FallbackAssemblies) {
                 foreach (var convention in _Conventions) {
+                    foreach (var viewName in convention.GetPossibleViewNamesFor(viewModelType)) {
+                        var viewFullName = viewName.FullName;
 
-                    var viewName = convention.GetViewNameFor(viewModelType);
-                    var viewFullName = viewName.FullName;
+                        var assemblyQualifiedViewTypeName = $"{viewFullName}, {assemblyName}";
 
-                    var assemblyQualifiedViewTypeName = $"{viewFullName}, {assemblyName}";
+                        ResolvingView?.Invoke(this, new ResolvingViewEventArgs(viewModelType, assemblyQualifiedViewTypeName));
 
-                    ResolvingView?.Invoke(this, new ResolvingViewEventArgs(viewModelType, assemblyQualifiedViewTypeName));
+                        var viewType = Type.GetType(assemblyQualifiedViewTypeName);
+                        if (viewType == null)
+                            continue;
+                        if (viewType == viewModelType)
+                            continue;
 
-                    var viewType = Type.GetType(assemblyQualifiedViewTypeName);
-                    if (viewType == null)
-                        continue;
-                    if (viewType == viewModelType)
-                        continue;
-
-                    return viewType;
+                        return viewType;
+                    }
                 }
             }
 

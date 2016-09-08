@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blue.MVVM.Navigation {
+namespace Blue.MVVM.Navigation.ViewLocators {
     public class MappingViewLocator : IViewLocator {
 
         private Dictionary<Type, Type> _Map = new Dictionary<Type, Type>();

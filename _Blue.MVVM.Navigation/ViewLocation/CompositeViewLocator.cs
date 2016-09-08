@@ -5,11 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Blue.MVVM.IoC;
 
-namespace Blue.MVVM.Navigation {
+namespace Blue.MVVM.Navigation.ViewLocators {
     public class CompositeViewLocator : IViewLocator {
 
         private ICollection<IViewLocator> _Locators = new List<IViewLocator>();
 
+
+        public CompositeViewLocator(params IViewLocator[] locators) {
+            if (locators == null)
+                return;
+
+            foreach (var locator in locators)
+                Add(locator);
+        }
 
         public void Add(IViewLocator locator) {
             if (locator == null)
