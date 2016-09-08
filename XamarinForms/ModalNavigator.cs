@@ -10,12 +10,6 @@ using Xamarin.Forms;
 namespace Blue.MVVM.Navigation {
     public partial class ModalNavigator {
         
-        public class Settings {
-            public bool IsAnimationEnabled { get; set; }
-        }
-
-        public Settings Defaults { get; } = new Settings();
-
         public ModalNavigator(IViewLocator viewLocator, ITypeResolver typeResolver, INavigation navigationRoot) 
             : base (viewLocator, typeResolver) {
 
@@ -34,11 +28,22 @@ namespace Blue.MVVM.Navigation {
             if (asyncConfig != null)
                 await asyncConfig(viewModel);
 
-            await _NavigationRoot.PushModalAsync(page, animated ?? Defaults.IsAnimationEnabled);
+
+            var view = page as INavigationAwareView;
+
+            await view.TryNavigatingToAsync();
+            await _NavigationRoot.PushModalAsync(page, animated ?? DefaultSettings.IsAnimationEnabled);
+            await view.TryNavigatedToAsync();
         }
 
         public async Task PopModalAsync(bool? animated = null) {
-            await _NavigationRoot.PopModalAsync(animated ?? Defaults.IsAnimationEnabled);
+            var view = _NavigationRoot.ModalStack.Last() as INavigationAwareView;
+
+            await view.TryNavigatingFromAsync();
+            await _NavigationRoot.PopModalAsync(animated ?? DefaultSettings.IsAnimationEnabled);
+            await view.TryNavigatedFromAsync();
         }
+
+       
     }
 }

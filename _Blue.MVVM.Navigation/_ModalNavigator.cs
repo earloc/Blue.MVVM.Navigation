@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 namespace Blue.MVVM.Navigation {
     partial class ModalNavigator : NavigatorBase, IModalNavigator {
 
+        public class Settings {
+            public bool IsAnimationEnabled { get; set; }
+        }
+
+        public static Settings DefaultSettings { get; } = new Settings();
+
         protected ModalNavigator(IViewLocator viewLocator, ITypeResolver typeResolver)
             : base(viewLocator, typeResolver) {
         }

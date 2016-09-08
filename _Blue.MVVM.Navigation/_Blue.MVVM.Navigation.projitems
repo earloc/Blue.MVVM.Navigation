@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)CrossTask.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DefaultViewNameConvention.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IModalNavigator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)INavigationAwareView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)INavigator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IModalNavigatorExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)INavigatorExtensions.cs" />

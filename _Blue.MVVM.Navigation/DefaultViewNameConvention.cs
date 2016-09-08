@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Blue.MVVM.Navigation {
-    class DefaultViewNameConvention : IViewNameConvention {
+    public class DefaultViewNameConvention : IViewNameConvention {
         public ViewName GetViewNameFor(Type viewModelType) {
             if (viewModelType == null)
                 throw new ArgumentNullException(nameof(viewModelType), "must not be null");
