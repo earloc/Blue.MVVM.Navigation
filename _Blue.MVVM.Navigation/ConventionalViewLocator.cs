@@ -51,8 +51,12 @@ namespace Blue.MVVM.Navigation {
                     ResolvingView?.Invoke(this, new ResolvingViewEventArgs(viewModelType, assemblyQualifiedViewTypeName));
 
                     var viewType = Type.GetType(assemblyQualifiedViewTypeName);
-                    if (viewType != null)
-                        return viewType;
+                    if (viewType == null)
+                        continue;
+                    if (viewType == viewModelType)
+                        continue;
+
+                    return viewType;
                 }
             }
 

@@ -6,38 +6,38 @@ using System.Threading.Tasks;
 namespace Blue.MVVM.Navigation {
     public interface INavigationAwareView {
 
-        Task NavigatingToAsync();
+        Task AppearingAsync();
 
-        Task NavigatedToAsync();
+        Task AppearedAsync();
 
-        Task NavigatingFromAsync();
+        Task DisappearingAsync();
 
-        Task NavigatedFromAsync();
+        Task DisappearedAsync();
     }
 
     public static class INavigationAwareViewExtensions {
-        public static async Task TryNavigatingToAsync(this INavigationAwareView source) {
+        public static async Task TryAppearingAsync(this INavigationAwareView source) {
             if (source == null)
                 return;
-            await source.NavigatingFromAsync();
+            await source.AppearingAsync();
         }
 
-        public static async Task TryNavigatedToAsync(this INavigationAwareView source) {
+        public static async Task TryAppearedAsync(this INavigationAwareView source) {
             if (source == null)
                 return;
-            await source.NavigatedToAsync();
+            await source.AppearedAsync();
         }
 
-        public static async Task TryNavigatingFromAsync(this INavigationAwareView source) {
+        public static async Task TryDisappearingAsync(this INavigationAwareView source) {
             if (source == null)
                 return;
-            await source.NavigatingFromAsync();
+            await source.DisappearingAsync();
         }
 
-        public static async Task TryNavigatedFromAsync(this INavigationAwareView source) {
+        public static async Task TryDisappearedAsync(this INavigationAwareView source) {
             if (source == null)
                 return;
-            await source.NavigatedFromAsync();
+            await source.DisappearedAsync();
         }
     }
 }

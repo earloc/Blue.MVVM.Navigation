@@ -31,17 +31,17 @@ namespace Blue.MVVM.Navigation {
 
             var view = page as INavigationAwareView;
 
-            await view.TryNavigatingToAsync();
+            await view.TryAppearingAsync();
             await _NavigationRoot.PushModalAsync(page, animated ?? DefaultSettings.IsAnimationEnabled);
-            await view.TryNavigatedToAsync();
+            await view.TryAppearedAsync();
         }
 
         public async Task PopModalAsync(bool? animated = null) {
             var view = _NavigationRoot.ModalStack.Last() as INavigationAwareView;
 
-            await view.TryNavigatingFromAsync();
+            await view.TryDisappearingAsync();
             await _NavigationRoot.PopModalAsync(animated ?? DefaultSettings.IsAnimationEnabled);
-            await view.TryNavigatedFromAsync();
+            await view.TryDisappearedAsync();
         }
 
        
