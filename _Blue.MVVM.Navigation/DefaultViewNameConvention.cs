@@ -9,7 +9,7 @@ namespace Blue.MVVM.Navigation {
                 throw new ArgumentNullException(nameof(viewModelType), "must not be null");
 
             var viewModelNameSpace = viewModelType.Namespace;
-            var viewNameSpace = viewModelNameSpace.Replace("ViewModels", "Views");
+            var viewNameSpace = viewModelNameSpace.Replace("ViewModel", "View");
 
             var viewModelSimpleName = viewModelType.Name;
 
