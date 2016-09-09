@@ -26,6 +26,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\CachingViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\CompositeViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\ConventionalViewLocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\DefaultViewForAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\DefaultViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\IViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\MappingViewLocator.cs" />

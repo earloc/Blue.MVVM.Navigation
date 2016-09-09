@@ -13,7 +13,6 @@ namespace Blue.MVVM.Navigation {
         
         public ModalNavigator(IViewLocator viewLocator, ITypeResolver typeResolver, INavigation navigationRoot) 
             : base (viewLocator, typeResolver) {
-
             if (navigationRoot == null)
                 throw new ArgumentNullException(nameof(navigationRoot), "must not be null");
             _NavigationRoot = navigationRoot;
