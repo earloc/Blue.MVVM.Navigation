@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blue.MVVM.Navigation.ViewLocation {
+namespace Blue.MVVM.Navigation.ViewLocators {
     public class CachingViewLocator : IViewLocator {
 
         private readonly IViewLocator _BaseLocator;
