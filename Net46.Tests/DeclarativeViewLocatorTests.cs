@@ -22,10 +22,6 @@ namespace Net46.Tests {
 
         }
 
-        [DefaultViewFor(typeof(ViewModel<string>))]
-        public class StringView {
-
-        }
 
         [DefaultViewFor(typeof(ViewModel<>))]
         [DefaultViewFor(typeof(ViewModel))]
@@ -33,6 +29,10 @@ namespace Net46.Tests {
 
         }
 
+        [DefaultViewFor(typeof(ViewModel<string>))]
+        public class StringView {
+
+        }
       
 
         [TestMethod]
