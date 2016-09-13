@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Blue.MVVM.Navigation</id>
-    <version>0.3.0-pre03</version>
+    <version>0.4.0-pre03</version>
     <title>Blue.MVVM.Navigation</title>
     <authors>earloc</authors>
     <owners></owners>
@@ -10,6 +10,7 @@
       MVVM&lt;BareKnuckleStyle&gt; - Navigation
     </description>
     <releaseNotes>
+      - 0.4.0 - added DeclarativewViewLocator (Attribute-based)
       - 0.3.0 - extended ViewNameConventions and ViewLocators
       - 0.2.0 - various API and target profile changes
       - 0.1.0 - initial release

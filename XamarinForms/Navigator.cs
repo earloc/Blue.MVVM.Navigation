@@ -12,7 +12,8 @@ namespace Blue.MVVM.Navigation {
 
         public Navigator(IViewLocator viewLocator, ITypeResolver typeResolver, INavigation navigationRoot) 
             : this (viewLocator, typeResolver) {
-
+            System.Reflection.Assembly asm;
+            
             if (navigationRoot == null)
                 throw new ArgumentNullException(nameof(navigationRoot), "must not be null");
             _NavigationRoot = navigationRoot;

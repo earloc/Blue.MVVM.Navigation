@@ -10,11 +10,13 @@ namespace Blue.MVVM.Navigation.ViewLocators {
         public DefaultViewLocator() {
             Map = new MappingViewLocator();
             Convention = new ConventionalViewLocator(true);
-            Composite = new CompositeViewLocator(Map, Convention);
+            Declarative = new DeclarativeViewLocator();
+            Composite = new CompositeViewLocator(Map, Convention, Declarative);
             Cache = new CachingViewLocator(Composite);
         }
 
         public CompositeViewLocator Composite { get; }
+        public DeclarativeViewLocator Declarative { get; }
         public ConventionalViewLocator Convention { get; }
         public MappingViewLocator Map { get; }
         public CachingViewLocator Cache { get; }

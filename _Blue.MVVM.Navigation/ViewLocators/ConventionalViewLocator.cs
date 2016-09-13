@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Blue.MVVM.Navigation.ViewLocators {
-    public partial class ConventionalViewLocator : IViewLocator {
+    public partial class ConventionalViewLocator : ImplicitViewLocator, IViewLocator {
 
         public ConventionalViewLocator(bool includeDefaultViewNameConvention = true) {
 
@@ -16,14 +16,6 @@ namespace Blue.MVVM.Navigation.ViewLocators {
                 AddViewNameConvention(new InheritanceViewNameConvention(new DefaultViewNameConvention()));
         }
 
-        private ISet<string> _FallbackAssemblies = new HashSet<string>();
-
-        public void AddViewAssembly(Assembly viewAssembly) {
-            if (viewAssembly == null)
-                throw new ArgumentNullException(nameof(viewAssembly), "must not be null");
-
-            _FallbackAssemblies.Add(viewAssembly.FullName);
-        }
 
         private IList<IViewNameConvention> _Conventions = new List<IViewNameConvention>();
         public void AddViewNameConvention(IViewNameConvention convention) {
@@ -41,14 +33,14 @@ namespace Blue.MVVM.Navigation.ViewLocators {
 
             IncludeOriginatingAssemblyName(viewModelType);
             
-            foreach (var assemblyName in _FallbackAssemblies) {
+            foreach (var assemblyName in AssemblyNames) {
                 foreach (var convention in _Conventions) {
                     foreach (var viewName in convention.GetPossibleViewNamesFor(viewModelType)) {
                         var viewFullName = viewName.FullName;
 
                         var assemblyQualifiedViewTypeName = $"{viewFullName}, {assemblyName}";
 
-                        ResolvingView?.Invoke(this, new ResolvingViewEventArgs(viewModelType, assemblyQualifiedViewTypeName));
+                        OnResolvingView(viewModelType, assemblyQualifiedViewTypeName);
 
                         var viewType = Type.GetType(assemblyQualifiedViewTypeName);
                         if (viewType == null)
@@ -67,13 +59,8 @@ namespace Blue.MVVM.Navigation.ViewLocators {
             return null;
         }
 
-        private void IncludeOriginatingAssemblyName(Type viewModelType) {
-            var viewModelFullName = viewModelType.FullName;
-            var viewModelAssemblQualifiedName = viewModelType.AssemblyQualifiedName;
-            var viewModelAssemblyName = viewModelAssemblQualifiedName.Replace($"{viewModelFullName}, ", string.Empty);
-
-            if (!_FallbackAssemblies.Contains(viewModelAssemblyName))
-                _FallbackAssemblies.Add(viewModelAssemblyName);
+        protected void OnResolvingView(Type viewModelType, string assemblyQualifiedViewTypeName) {
+            ResolvingView?.Invoke(this, new ResolvingViewEventArgs(viewModelType, assemblyQualifiedViewTypeName));
         }
 
         public event EventHandler<ResolvingViewEventArgs> ResolvingView;

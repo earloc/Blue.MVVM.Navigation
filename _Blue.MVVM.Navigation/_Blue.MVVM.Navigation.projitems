@@ -9,10 +9,12 @@
     <Import_RootNamespace>_Blue.MVVM.Navigation</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AssemblyExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Conventions\DefaultViewNameConvention.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Conventions\InheritanceViewNameConvention.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Conventions\ViewName.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CrossTask.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CrossType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IModalNavigator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)INavigationAwareView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)INavigator.cs" />
@@ -26,8 +28,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\CachingViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\CompositeViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\ConventionalViewLocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\DeclarativeViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\DefaultViewForAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\DefaultViewLocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\ImplicitViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\IViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewLocators\MappingViewLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewNotFoundException.cs" />
