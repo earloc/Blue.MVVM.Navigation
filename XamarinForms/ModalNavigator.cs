@@ -44,6 +44,7 @@ namespace Blue.MVVM.Navigation {
             await view.TryDisappearedAsync();
         }
 
-       
+
+
     }
 }
