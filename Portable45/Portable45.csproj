@@ -53,8 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Blue.MVVM.IoC, Version=0.4.0.0, Culture=neutral, PublicKeyToken=1bb1db17d606db59, processorArchitecture=MSIL">
-      <HintPath>..\packages\Blue.MVVM.IoC.0.4.2-pre1\lib\portable-win+net45+win81+wpa81+MonoAndroid+MonoTouch+Xamarin.iOS\Blue.MVVM.IoC.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Blue.MVVM.IoC.1.0.0-pre2\lib\portable-net40+sl5+win8+wp8\Blue.MVVM.IoC.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="..\_Blue.MVVM.Navigation\_Blue.MVVM.Navigation.projitems" Label="Shared" />

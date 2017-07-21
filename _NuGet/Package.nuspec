@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Blue.MVVM.Navigation</id>
-    <version>0.4.0-pre03</version>
+    <version>1.0.0-pre01</version>
     <title>Blue.MVVM.Navigation</title>
     <authors>earloc</authors>
     <owners></owners>
@@ -10,6 +10,7 @@
       MVVM&lt;BareKnuckleStyle&gt; - Navigation
     </description>
     <releaseNotes>
+      - 1.0.0 - added netstandard 1.0
       - 0.4.0 - added DeclarativewViewLocator (Attribute-based)
       - 0.3.0 - extended ViewNameConventions and ViewLocators
       - 0.2.0 - various API and target profile changes
@@ -27,7 +28,7 @@
     <tags>Blue MVVM Navigation</tags>
     <dependencies>
       <group>
-        <dependency id="Blue.MVVM.IoC" version="0.4.2-pre1" />
+        <dependency id="Blue.MVVM.IoC" version="1.0.0-pre2" />
       </group>
     </dependencies>
     </metadata>
@@ -37,8 +38,8 @@
     <file src="bin\lib\net46\Blue.MVVM.*"
           target="lib/net46" />
 
-    <file src="bin\lib\uwp\Blue.MVVM.*"
-          target="lib/netcore45" />
+    <!--<file src="bin\lib\uwp\Blue.MVVM.*"
+          target="lib/netcore45" />-->
     
     <file src="bin\lib\xamarinForms\Blue.MVVM.*"
               target="lib/monoandroid" />

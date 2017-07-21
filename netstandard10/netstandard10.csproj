@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <!--<PackageTargetFallback>portable-net40+sl5+win8+wp8+wpa81</PackageTargetFallback>-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blue.MVVM.IoC" Version="1.0.0-pre2" />
+  </ItemGroup>
+
+</Project>

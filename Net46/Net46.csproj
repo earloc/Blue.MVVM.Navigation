@@ -39,8 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Blue.MVVM.IoC, Version=0.4.0.0, Culture=neutral, PublicKeyToken=1bb1db17d606db59, processorArchitecture=MSIL">
-      <HintPath>..\packages\Blue.MVVM.IoC.0.4.2-pre1\lib\net20\Blue.MVVM.IoC.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Blue.MVVM.IoC.1.0.0-pre2\lib\net20\Blue.MVVM.IoC.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
