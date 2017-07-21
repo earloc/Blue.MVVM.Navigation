@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Blue.MVVM.Navigation</id>
-    <version>1.0.0-pre02</version>
+    <version>1.0.0-pre04</version>
     <title>Blue.MVVM.Navigation</title>
     <authors>earloc</authors>
     <owners></owners>
@@ -23,7 +23,7 @@
     <iconUrl>http://oi60.tinypic.com/wl6c7a.jpg</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
-    <copyright>Copyright nobody in particular 2016</copyright>
+    <copyright>Copyright nobody in particular 2017</copyright>
     <references></references>
     <tags>Blue MVVM Navigation</tags>
     <dependencies>
@@ -40,6 +40,8 @@
 
     <!--<file src="bin\lib\uwp\Blue.MVVM.*"
           target="lib/netcore45" />-->
+    <file src="bin\lib\netstandard10\Blue.MVVM.*"
+          target="lib/netstandard10" />
     
     <file src="bin\lib\xamarinForms\Blue.MVVM.*"
               target="lib/monoandroid" />
