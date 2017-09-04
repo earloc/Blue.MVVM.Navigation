@@ -10,8 +10,8 @@ using Xamarin.Forms;
 namespace Blue.MVVM.Navigation {
     public partial class Navigator {
 
-        public Navigator(IViewLocator viewLocator, ITypeResolver typeResolver, INavigation navigationRoot) 
-            : this (viewLocator, typeResolver) {
+        public Navigator(IViewLocator viewLocator, IServiceLocator serviceLocator, INavigation navigationRoot) 
+            : this (viewLocator, serviceLocator) {
             System.Reflection.Assembly asm;
             
             if (navigationRoot == null)
@@ -27,7 +27,7 @@ namespace Blue.MVVM.Navigation {
 
         private async Task<bool> PushCoreAsync<TViewModel>(TViewModel viewModel, Func<TViewModel, Task> asyncConfig = null) {
             var viewType = await ViewLocator.ResolveViewTypeForAsync(viewModel?.GetType() ?? typeof(TViewModel), true);
-            var page = TypeResolver.ResolveAs<Page>(viewType);
+            var page = ServiceLocator.GetAs<Page>(viewType);
 
             SetViewModel<TViewModel, BindableObject>(page, viewModel, (v, vm) => v.BindingContext = vm);
 

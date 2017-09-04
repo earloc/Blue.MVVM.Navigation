@@ -5,19 +5,19 @@ using System.Threading.Tasks;
 
 namespace Blue.MVVM.Navigation {
     public static class IModalNavigatorExtensions {
-        public static async Task TrShowModalAsync<TViewModel>(this IModalNavigator source, Action<TViewModel> viewModelConfig = null, bool? animated = null) {
+        public static async Task TrShowModalAsync<TViewModel>(this IModalNavigator source, Action<TViewModel> viewModelConfig = null, bool? animated = null) where TViewModel : class {
             if (source == null)
                 return;
             await source.ShowModalAsync(viewModelConfig, animated);
         }
 
-        public static async Task TryShowModalAsync<TViewModel>(this IModalNavigator source, Func<TViewModel, Task> asyncViewModelConfig = null, bool? animated = null) {
+        public static async Task TryShowModalAsync<TViewModel>(this IModalNavigator source, Func<TViewModel, Task> asyncViewModelConfig = null, bool? animated = null) where TViewModel : class {
             if (source == null)
                 return;
             await source.ShowModalAsync(asyncViewModelConfig, animated);
         }
 
-        public static async Task TryShowModalAsync<TViewModel>(this IModalNavigator source, TViewModel viewModel, bool? animated = null) {
+        public static async Task TryShowModalAsync<TViewModel>(this IModalNavigator source, TViewModel viewModel, bool? animated = null) where TViewModel : class {
             if (source == null)
                 return;
             await source.ShowModalAsync(viewModel, animated);

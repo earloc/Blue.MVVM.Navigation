@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Blue.MVVM.Navigation</id>
-    <version>1.0.0-pre04</version>
+    <version>1.0.0-pre08</version>
     <title>Blue.MVVM.Navigation</title>
     <authors>earloc</authors>
     <owners></owners>
@@ -28,32 +28,31 @@
     <tags>Blue MVVM Navigation</tags>
     <dependencies>
       <group>
-        <dependency id="Blue.MVVM.IoC" version="1.0.0-pre2" />
+        <dependency id="Blue.MVVM.IoC" version="2.0.0-pre5" />
       </group>
     </dependencies>
     </metadata>
   <files>
+    <file src="bin\lib\netstandard10\Blue.MVVM.*"
+          target="lib\netstandard10" />
+    
     <file src="bin\lib\net45\Blue.MVVM.*"
-          target="lib/net45" />
+          target="lib\net45" />
     <file src="bin\lib\net46\Blue.MVVM.*"
-          target="lib/net46" />
-
+          target="lib\net46" />
     <!--<file src="bin\lib\uwp\Blue.MVVM.*"
           target="lib/netcore45" />-->
-    <file src="bin\lib\netstandard10\Blue.MVVM.*"
-          target="lib/netstandard10" />
+    <file src="bin\lib\xamarinForms\Blue.MVVM.*"
+              target="lib\monoandroid" />
     
     <file src="bin\lib\xamarinForms\Blue.MVVM.*"
-              target="lib/monoandroid" />
+              target="lib\monotouch" />
     
     <file src="bin\lib\xamarinForms\Blue.MVVM.*"
-              target="lib/monotouch" />
-    
-    <file src="bin\lib\xamarinForms\Blue.MVVM.*"
-              target="lib/Xamarin.iOS" />
+              target="lib\Xamarin.iOS" />
     
     <file src="bin\lib\portable45\Blue.MVVM.*"
-          target="lib/portable-net45+netcore45+wpa81+MonoAndroid+xamarinios+monotouch" />
+          target="lib\portable-net45+netcore45+wpa81+MonoAndroid+xamarinios+monotouch" />
 
   </files>
 </package>

@@ -102,16 +102,16 @@
       <Link>lib\net46\Blue.MVVM.Navigation.XML</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\netstandard10\bin\netstandard1.0\netstandard10.dll">
-      <Link>lib\netstandard10\netstandard10.dll</Link>
+    <Content Include="..\netstandard10\bin\netstandard1.0\Blue.MVVM.Navigation.dll">
+      <Link>lib\netstandard10\Blue.MVVM.Navigation.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\netstandard10\bin\netstandard1.0\netstandard10.pdb">
-      <Link>lib\netstandard10\netstandard10.pdb</Link>
+    <Content Include="..\netstandard10\bin\netstandard1.0\Blue.MVVM.Navigation.pdb">
+      <Link>lib\netstandard10\Blue.MVVM.Navigation.pdb</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\netstandard10\bin\netstandard1.0\netstandard10.xml">
-      <Link>lib\netstandard10\netstandard10.xml</Link>
+    <Content Include="..\netstandard10\bin\netstandard1.0\Blue.MVVM.Navigation.xml">
+      <Link>lib\netstandard10\Blue.MVVM.Navigation.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Portable45\bin\Blue.MVVM.Navigation.dll">

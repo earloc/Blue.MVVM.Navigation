@@ -8,7 +8,7 @@ using Blue.MVVM.Navigation.ViewLocators;
 namespace Blue.MVVM.Navigation {
     internal static class AssemblyExtensions {
         private class Match {
-            public Match(CrossType a, CrossType b, Type viewType) {
+            public Match(CrossType a, CrossType b, TypeInfo viewType) {
                 Rank = 0;
                 if (a.IsGenericTypeDefinition) {
                     Rank = 1;
@@ -16,6 +16,7 @@ namespace Blue.MVVM.Navigation {
                         a = a.MakeGenericType(b.GetGenericArguments());
                     }
                 }
+                
                 if (a.IsAssignableFrom(b)) {
                     Type = viewType;
                 }
@@ -23,17 +24,22 @@ namespace Blue.MVVM.Navigation {
             }
             public bool IsMatch => Type != null;
 
-            public Type Type { get; }
+            public TypeInfo Type { get; }
 
             public int Rank { get; }
 
         }
 
-        public static IEnumerable<Type> GetViewTypesFor(this Assembly source, Type viewModelType) {
-            var types = source.GetTypes();
+        public static IEnumerable<TypeInfo> GetViewTypesFor(this Assembly source, Type viewModelType) {
+
+#if NET40
+            var types = source.GetTypes().Select(x => x.GetTypeInfo());
+#else
+            var types = source.DefinedTypes;
+#endif
             var viewModelCrossType = viewModelType.AsCrossType();
             var viewTypes = (from type in types
-                            let attributes = type.GetTypeInfo().GetCustomAttributes(typeof(DefaultViewForAttribute), false).OfType<DefaultViewForAttribute>()
+                            let attributes = type.GetCustomAttributes(typeof(DefaultViewForAttribute), false).OfType<DefaultViewForAttribute>()
                             from atr in attributes
                             let match = new Match(atr.ViewModelType.AsCrossType(), viewModelCrossType, type)
                             where match.IsMatch

@@ -22,7 +22,7 @@ namespace Blue.MVVM.Navigation {
                 await asyncConfig(viewModel);
             }
 
-            var view = TypeResolver.ResolveAs<FrameworkElement>(viewType);
+            var view = ServiceLocator.GetAs<FrameworkElement>(viewType);
 
             SetViewModel<TViewModel, FrameworkElement>(view, viewModel, (v, vm) => v.DataContext = vm);
 

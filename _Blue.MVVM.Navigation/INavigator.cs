@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Blue.MVVM.Navigation {
     public interface INavigator {
-        Task<bool> PushAsync<TViewModel>(Func<TViewModel, Task> asyncConfig);
-        Task<bool> PushAsync<TViewModel>(Action<TViewModel> config);
-        Task<bool> PushAsync<TViewModel>(TViewModel viewModel);
-        Task<bool> PushAsync<TViewModel>();
+        Task<bool> PushAsync<TViewModel>(Func<TViewModel, Task> asyncConfig) where TViewModel : class;
+        Task<bool> PushAsync<TViewModel>(Action<TViewModel> config) where TViewModel : class;
+        Task<bool> PushAsync<TViewModel>(TViewModel viewModel) where TViewModel : class;
+        Task<bool> PushAsync<TViewModel>() where TViewModel : class;
         Task PopAsync();
     }
 }

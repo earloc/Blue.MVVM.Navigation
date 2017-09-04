@@ -18,8 +18,8 @@ using Windows.UI.Xaml.Controls;
 
 namespace Blue.MVVM.Navigation {
     public partial class Navigator {
-        public Navigator(IViewLocator viewLocator, ITypeResolver typeResolver, Frame navigationRoot) 
-            : this(viewLocator, typeResolver) {
+        public Navigator(IViewLocator viewLocator, IServiceLocator serviceLocator, Frame navigationRoot) 
+            : this(viewLocator, serviceLocator) {
            
             if (navigationRoot == null)
                 throw new ArgumentNullException(nameof(navigationRoot), "must not be null");
